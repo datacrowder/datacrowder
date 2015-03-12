@@ -16,6 +16,11 @@ var ProjectSchema = new Schema({
 		required: 'Please fill Project name',
 		trim: true
 	},
+	status: {
+		type: String,
+		default: 'Open',
+		trim: true
+	},
 	created: {
 		type: Date,
 		default: Date.now
