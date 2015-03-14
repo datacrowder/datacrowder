@@ -7,19 +7,40 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
+ * A Validation function for headlines
+ */
+var validateHeadline = function(headline) {
+	return (headline.length <= 90);
+};
+
+/**
+ * A Validation function for descriptions
+ */
+var validateDescription = function(description) {
+	return (description.length <= 141);
+};
+
+/**
  * Project Schema
  */
 var ProjectSchema = new Schema({
-	name: {
+	headline: {
 		type: String,
 		default: '',
-		required: 'Please fill Project name',
+		required: 'Please fill project headline',
+		validate: [validateHeadline, 'Headline is longer than 90 characters'],
 		trim: true
 	},
-	status: {
+	description: {
 		type: String,
-		default: 'Open',
+		default: '',
+		required: 'Please fill project description',
+		validate: [validateDescription, 'Description is longer than 141 characters'],
 		trim: true
+	},
+	closed: {
+		type: Boolean,
+		default: false
 	},
 	created: {
 		type: Date,
