@@ -20,6 +20,22 @@ var validateDescription = function(description) {
 	return (description.length <= 141);
 };
 
+/*
+* Question Schema
+*/
+var QuestionSchema = new Schema({
+	text: {
+		type: String,
+		default: '',
+		required: 'Please fill question',
+		trim: true
+	},
+	type: {
+		type: String,
+		required: 'Please select question type'
+	}
+});
+
 /**
  * Project Schema
  */
@@ -42,6 +58,7 @@ var ProjectSchema = new Schema({
 		type: Boolean,
 		default: false
 	},
+	questions: [QuestionSchema],
 	created: {
 		type: Date,
 		default: Date.now

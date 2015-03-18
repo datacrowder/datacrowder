@@ -5,19 +5,47 @@
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
+                <!-- Headline -->
                 <div class="form-group">
                     <label class="control-label" for="headline">Headline</label>
                     <div class="controls">
                         <input type="text" data-ng-model="headline" id="headline" class="form-control" placeholder="Headline" required>
                     </div>
                 </div>
+
+                <!-- Description -->
                 <div class="form-group">
                     <label class="control-label" for="description">Description</label>
                     <div class="controls">
                         <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Description" required>
                     </div>
                 </div>
+
+                <!-- Question -->
+                <div class="form-group" ng-repeat="question in questions">
+                    <!-- Question text -->
+                    <label class="control-label" for="question">Question</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="question.text" id="question" class="form-control" placeholder="Question" required>
+                    </div>
+                    
+                    <!-- Question type -->
+                    <label class="control-label" for="typeSelector">Type</label>
+                    <select class="form-control" ng-model="question.type" ng-options="type as type for type in questionTypes" 
+                        id="typeSelector" ng-change="changeType($index)"></select>
+                    
+                    <!-- Remove question -->
+                    <a class="btn btn-primary" ng-if="questions.length > 1" ng-click="removeQuestion(this, $index)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </a>
+                </div>
+
+                <!-- Button -->
                 <div class="form-group">
+                    <!-- Add question -->
+                    <button type="button" ng-click="addQuestion(this)" class="btn btn-default">Add question</button>
+
+                    <!-- Submit form -->
                     <input type="submit" class="btn btn-default">
                 </div>
 				<div data-ng-show="error" class="text-danger">

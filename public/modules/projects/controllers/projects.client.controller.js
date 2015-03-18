@@ -4,13 +4,18 @@
 angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
 	function($scope, $stateParams, $location, Authentication, Projects) {
 		$scope.authentication = Authentication;
+		$scope.questionTypes = ["single choice", "multiple choice", "dropdown", "text"];
+		$scope.statusTypes= [{ value: true, name: "Story" }, { value: false, name: "Project" }];
+		$scope.questions = [{text: '', type: ''}];
 
 		// Create new Project
 		$scope.create = function() {
+
 			// Create new Project object
 			var project = new Projects ({
 				headline: this.headline,
-				description: this.description
+				description: this.description,
+				questions: this.questions
 			});
 
 			// Redirect after save
@@ -63,6 +68,22 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 			$scope.project = Projects.get({ 
 				projectId: $stateParams.projectId
 			});
+		};
+
+		// Add a Question
+		$scope.addQuestion = function(project) {
+			if ( project.questions.length < 3 )
+				project.questions.push({ text : '', type: '' });
+		};
+
+		// Remove a Question
+		$scope.removeQuestion = function(project, index) {
+			project.questions.splice(index, 1);
+		};
+
+		// Change type of Question
+		$scope.changeType = function(project, index) {
+
 		};
 	}
 ]);
