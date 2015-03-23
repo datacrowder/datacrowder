@@ -65,9 +65,9 @@ var QuestionSchema = new Schema({
         type: String,
         trim: true
     },
-    responseData: {
-        type: [String]
-    },
+    responseData: [{
+        text: String
+    }],
     responses: [ResponseSchema]
 });
 
