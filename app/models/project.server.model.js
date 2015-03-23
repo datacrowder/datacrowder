@@ -21,6 +21,29 @@ var validateDescription = function(description) {
 };
 
 /*
+* Response Schema
+*/
+var ResponseSchema = new Schema({
+    answerIds: {
+        type: [Number]
+    },
+    answerText: {
+        type: String
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User'
+    },
+    updated: {
+        type: Date
+    },
+    created: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+/*
 * Question Schema
 */
 var QuestionSchema = new Schema({
@@ -33,7 +56,19 @@ var QuestionSchema = new Schema({
 	type: {
 		type: String,
 		required: 'Please select question type'
-	}
+	},
+    startValue: {
+        type: String,
+        trim: true
+    },
+    endValue: {
+        type: String,
+        trim: true
+    },
+    responseData: {
+        type: [String]
+    },
+    responses: [ResponseSchema]
 });
 
 /**
@@ -59,14 +94,17 @@ var ProjectSchema = new Schema({
 		default: false
 	},
 	questions: [QuestionSchema],
-	created: {
-		type: Date,
-		default: Date.now
-	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+	},
+    updated: {
+        type: Date
+    },
+    created: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 mongoose.model('Project', ProjectSchema);

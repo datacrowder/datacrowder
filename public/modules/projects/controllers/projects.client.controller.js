@@ -2,10 +2,10 @@
 
 // Projects controller
 angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
-	function($scope, $stateParams, $location, Authentication, Projects) {
+    function($scope, $stateParams, $location, Authentication, Projects) {
 		$scope.authentication = Authentication;
-		$scope.questionTypes = ["single choice", "multiple choice", "dropdown", "text"];
-		$scope.statusTypes= [{ value: true, name: "Story" }, { value: false, name: "Project" }];
+		$scope.questionTypes = ['single choice', 'multiple choice', 'dropdown', 'text'];
+		$scope.statusTypes= [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
 		$scope.questions = [{text: '', type: ''}];
 
 		// Create new Project
@@ -32,7 +32,7 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Remove existing Project
 		$scope.remove = function(project) {
-			if ( project ) { 
+			if ( project ) {
 				project.$remove();
 
 				for (var i in $scope.projects) {
@@ -65,14 +65,14 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Find existing Project
 		$scope.findOne = function() {
-			$scope.project = Projects.get({ 
+			$scope.project = Projects.get({
 				projectId: $stateParams.projectId
 			});
 		};
 
 		// Add a Question
 		$scope.addQuestion = function(project) {
-			if ( project.questions.length < 3 )
+			if ( project.questions.length < ApplicationConfiguration.maxQuestions )
 				project.questions.push({ text : '', type: '' });
 		};
 
