@@ -1,7 +1,7 @@
 {
-	"name": "datacrowder",
+	"name": "DataCrowder",
 	"version": "0.0.1",
-	"description": "Data Crowder description",
+	"description": "DataCrowder description",
 	"dependencies": {
 		"bootstrap": "~3",
 		"angular": "~1.2",

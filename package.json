@@ -1,7 +1,7 @@
 {
 	"name": "DataCrowder",
+    "version": "0.0.1",
 	"description": "DataCrowder description",
-	"version": "0.1.1",
 	"private": false,
 	"author": "https://github.com/nastasiu/datacrowder/graphs/contributors",
 	"repository": {
