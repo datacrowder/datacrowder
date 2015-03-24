@@ -32,7 +32,43 @@
                     <!-- Question type -->
                     <label class="control-label" for="typeSelector">Type</label>
                     <select class="form-control" ng-model="question.type" ng-options="type as type for type in questionTypes" 
-                        id="typeSelector" ng-change="changeType($index)"></select>
+                        id="typeSelector" ng-change="changeType(project, $index)"></select>
+
+                    <!-- Responses -->
+
+                    <!-- Non-interval response -->
+                    <div ng-if="question.type && question.type != 'interval'">
+                        <div ng-repeat="response in question.responseData">
+
+                            <!-- Response text -->
+                            <label for="response">Response {{$index + 1}}</label>
+                            <input type="text" ng-model="response.text" id="response" placeholder="Response" required>
+
+                            <!-- Remove response -->
+                            <a class="btn btn-primary" ng-if="question.responseData.length > 2" ng-click="removeResponse(question, $index)">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+
+                        </div>
+
+                        <!-- Add response -->
+                        <button type="button" ng-click="addResponse(question)" ng-if="question.responseData.length > 0" class="btn btn-default">Add response</button>
+                    </div>
+
+                    <!-- Interval response -->
+                    <div ng-if="question.type == 'interval'">
+                        <!-- Start value -->
+                        <label for="startValue">Start value</label>
+                        <input type="text" ng-model="question.startValue" id="startValue" placeholder="Start value" required>
+
+                        <!-- End value -->
+                        <label for="endValue">End value</label>
+                        <input type="text" ng-model="question.endValue" id="endValue" placeholder="End value" required>
+
+                        <!-- Number of intervals -->
+                        <label for="elements">Elements</label>
+                        <input type="text" ng-model="question.responseData[0].text" id="elements" placeholder="Elements" required>
+                    </div>
 
                     <!-- Remove question -->
                     <a class="btn btn-primary" ng-if="project.questions.length > 1" ng-click="removeQuestion(project, $index)">

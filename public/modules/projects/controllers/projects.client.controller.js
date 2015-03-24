@@ -83,9 +83,9 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Change type of Question
 		$scope.changeType = function(project, index) {
-			if ( project.questions[index].type == 'interval' )
+			if ( project.questions[index].type === 'interval' )
 				project.questions[index].responseData = [{text : ''}];
-			else if ( project.questions[index].type == 'text' )
+			else if ( project.questions[index].type === 'text' )
 				project.questions[index].responseData = [];				
 			else
 				project.questions[index].responseData = [{text : ''}, {text : ''}];
