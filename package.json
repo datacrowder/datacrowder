@@ -13,7 +13,7 @@
 		"npm": ">=1.4.28"
 	},
 	"scripts": {
-		"start": "NODE_ENV=production grunt",
+		"start": "grunt",
 		"test": "grunt test",
 		"postinstall": "bower install --config.interactive=false"
 	},
