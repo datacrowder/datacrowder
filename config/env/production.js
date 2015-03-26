@@ -4,8 +4,8 @@ module.exports = {
 	db: {
 		uri: 'mongodb://ds037551.mongolab.com:37551/heroku_app35162905',
 		options: {
-			user: '',
-			pass: ''
+			user: 'datacrowder',
+			pass: 'd474cr0wd3r'
 		}
 	},
 	log: {
