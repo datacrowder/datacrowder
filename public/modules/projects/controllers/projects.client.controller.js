@@ -4,8 +4,8 @@
 angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
     function($scope, $stateParams, $location, Authentication, Projects) {
 		$scope.authentication = Authentication;
-		$scope.questionTypes = ['single choice', 'multiple choice', 'dropdown', 'text'];
-		$scope.statusTypes= [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
+		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'dropdown', 'text'];
+		$scope.statusTypes = [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
 		$scope.questions = [{text: '', type: ''}];
 
 		// Create new Project
@@ -83,7 +83,23 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Change type of Question
 		$scope.changeType = function(project, index) {
+			if ( project.questions[index].type === 'interval' )
+				project.questions[index].responseData = [{text : ''}];
+			else if ( project.questions[index].type === 'text' )
+				project.questions[index].responseData = [];				
+			else
+				project.questions[index].responseData = [{text : ''}, {text : ''}];
 
+		};
+
+		// Add a Response
+		$scope.addResponse = function(question) {
+			question.responseData.push({ text : '' });
+		};
+
+		// Remove a Response
+		$scope.removeResponse = function(question, index) {
+			question.responseData.splice(index, 1);
 		};
 	}
 ]);
