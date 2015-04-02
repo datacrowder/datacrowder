@@ -14,6 +14,10 @@ module.exports = function(app) {
 		.put(users.requiresLogin, projects.hasAuthorization, projects.update)
 		.delete(users.requiresLogin, projects.hasAuthorization, projects.delete);
 
+	// Feed Routes
+	app.route('/feed')
+		.get(projects.feed);
+
 	// Finish by binding the Project middleware
 	app.param('projectId', projects.projectByID);
 };

@@ -70,10 +70,25 @@ exports.delete = function(req, res) {
 };
 
 /**
- * List of Projects
+ * List of user's Projects
  */
 exports.list = function(req, res) { 
-	Project.find().sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+	Project.find({ 'user' : req.user._id }).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(projects);
+		}
+	});
+};
+
+/**
+ * Feed of Projects
+ */
+exports.feed = function(req, res) { 
+	Project.find({ 'user' : { $ne : req.user._id }} ).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
