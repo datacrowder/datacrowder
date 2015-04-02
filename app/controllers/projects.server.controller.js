@@ -88,15 +88,28 @@ exports.list = function(req, res) {
  * Feed of Projects
  */
 exports.feed = function(req, res) { 
-	Project.find({ 'user' : { $ne : req.user._id }} ).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(projects);
-		}
-	});
+	if ( req.user ) {
+		Project.find({ 'user' : { $ne : req.user._id }} ).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp(projects);
+			}
+		});
+	}
+	else {
+		Project.find().sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp(projects);
+			}
+		});		
+	}
 };
 
 /**

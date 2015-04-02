@@ -25,6 +25,7 @@ angular.module('core').service('Menus', [
 					}
 				}
 			} else {
+				//alert(this.isPublic);
 				return this.isPublic;
 			}
 
@@ -161,6 +162,7 @@ angular.module('core').service('Menus', [
 		};
 
 		//Adding the topbar menu
-		this.addMenu('topbar');
+		// The menu is public, but some of its elements are not
+		this.addMenu('topbar', true);
 	}
 ]);
