@@ -5,6 +5,10 @@ angular.module('projects').config(['$stateProvider',
 	function($stateProvider) {
 		// Projects state routing
 		$stateProvider.
+		state('answer', {
+			url: '/projects/:projectId/answer',
+			templateUrl: 'modules/projects/views/answer.client.view.html'
+		}).
 		state('feed', {
 			url: '/feed',
 			templateUrl: 'modules/projects/views/feed.client.view.html'
