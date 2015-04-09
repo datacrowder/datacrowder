@@ -60,12 +60,12 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Find a list of Projects
 		$scope.find = function() {
-			$scope.projects = Projects.query();
+			$scope.projects = Projects.General.query();
 		};
 
 		// Find existing Project
 		$scope.findOne = function() {
-			$scope.project = Projects.get({
+			$scope.project = Projects.View.get({
 				projectId: $stateParams.projectId
 			});
 		};

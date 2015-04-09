@@ -14,14 +14,21 @@ module.exports = function(app) {
 	// Projects Routes
 	app.route('/projects')
 		.get(function (req,res,next) {
-			console.log('projects');
+			console.log('list/create');
 			next();
 		},projects.list)
 		.post(users.requiresLogin, projects.create);
 
-	app.route('/projects/:projectId')
+	app.route('/projects/:projectId/answer')
 		.get(function (req,res,next) {
-			console.log('projects/projectId');
+			console.log('answer');
+			next();
+		}, projects.read)
+		.put(projects.update);
+
+	app.route('/projects/:projectId/view')
+		.get(function (req,res,next) {
+			console.log('view/edit');
 			next();
 		}, projects.read)
 		.delete(users.requiresLogin, projects.hasAuthorization, projects.delete)

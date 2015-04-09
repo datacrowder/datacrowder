@@ -13,7 +13,7 @@ angular.module('projects').controller('FeedController', ['$scope', '$stateParams
 
 		// Find existing Project
 		$scope.findOne = function() {
-			$scope.project = Projects.get({
+			$scope.project = Projects.Answer.get({
 				projectId: $stateParams.projectId
 			});
 		};
