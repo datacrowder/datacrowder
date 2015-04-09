@@ -19,7 +19,7 @@
 	</div>
 	<!-- In case the user is not the project creator -->
 	<div class="pull-right" data-ng-show="((!authentication.user) || (authentication.user._id != project.user._id))">
-		<a class="btn btn-primary" href="/#!/feed/{{project._id}}/answer">
+		<a class="btn btn-primary" href="/#!/projects/{{project._id}}/answer">
 			<i class="glyphicon glyphicon-list-alt"></i>
 		</a>
 	</div>

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('projects').controller('FeedController', ['$scope', '$stateParams', '$location', 'Authentication', 'Feed',
-    function($scope, $stateParams, $location, Authentication, Feed) {
+angular.module('projects').controller('FeedController', ['$scope', '$stateParams', '$location', 'Authentication', 'Feed', 'Projects',
+    function($scope, $stateParams, $location, Authentication, Feed, Projects) {
     	$scope.authentication = Authentication;
     	$scope.formData = {};
 
@@ -13,7 +13,7 @@ angular.module('projects').controller('FeedController', ['$scope', '$stateParams
 
 		// Find existing Project
 		$scope.findOne = function() {
-			$scope.project = Feed.get({
+			$scope.project = Projects.get({
 				projectId: $stateParams.projectId
 			});
 		};

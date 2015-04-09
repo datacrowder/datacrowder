@@ -11,13 +11,6 @@ module.exports = function(app) {
 			next();
 		},projects.feed);
 
-	app.route('/feed/:projectId')
-		.get(function (req,res,next) {
-			console.log('feed/projectId');
-			next();
-		}, projects.read)
-		.put(projects.update);
-
 	// Projects Routes
 	app.route('/projects')
 		.get(function (req,res,next) {
