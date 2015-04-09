@@ -34,9 +34,6 @@ var ResponseSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
-    updated: {
-        type: Date
-    },
     created: {
         type: Date,
         default: Date.now

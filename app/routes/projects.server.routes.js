@@ -6,31 +6,19 @@ module.exports = function(app) {
 
 	// Feed Routes
 	app.route('/feed')
-		.get(function (req,res,next) {
-			console.log('feed');
-			next();
-		},projects.feed);
+		.get(projects.feed);
 
 	// Projects Routes
 	app.route('/projects')
-		.get(function (req,res,next) {
-			console.log('list/create');
-			next();
-		},projects.list)
+		.get(projects.list)
 		.post(users.requiresLogin, projects.create);
 
 	app.route('/projects/:projectId/answer')
-		.get(function (req,res,next) {
-			console.log('answer');
-			next();
-		}, projects.read)
+		.get(projects.read)
 		.put(projects.update);
 
 	app.route('/projects/:projectId/view')
-		.get(function (req,res,next) {
-			console.log('view/edit');
-			next();
-		}, projects.read)
+		.get(projects.read)
 		.delete(users.requiresLogin, projects.hasAuthorization, projects.delete)
 		.put(users.requiresLogin, projects.hasAuthorization, projects.update);
 

@@ -1,4 +1,4 @@
-<section data-ng-controller="FeedController"  data-ng-init="findOne()">
+<section data-ng-controller="FeedController"  data-ng-init="findForm()">
 	<div class="page-header">
 		<h1 data-ng-bind="project.headline"></h1>
 		<h3 data-ng-bind="project.description"></h3>
@@ -6,10 +6,38 @@
 	<form name="answerform" class="form-horizontal" data-ng-submit="answerform.$valid && answer()" novalidate>
         <fieldset>
             <!-- Question -->
-            <div class="form-group" ng-repeat="question in project.questions">
+            <div class="form-group" ng-switch="question.type" ng-repeat="question in project.questions" ng-init="qIndex = $index">
                 {{question.text}}
-                <div class="controls" ng-repeat="response in question.responseData">
-                	{{response.text}}  <input type="radio" data-ng-model="question.answer" value="{{response.text}}">
+
+                <!-- Single choice question -->
+                <div ng-switch-when="single choice">
+                	<div class="controls" ng-repeat="response in question.responseData">
+                		{{response.text}}  <input type="radio" data-ng-model="formAnswers[qIndex]" value="{{$index}}" required>
+                	</div>
+                </div>
+                
+                <!-- Multiple choice question -->
+                <div ng-switch-when="multiple choice">
+                	<div class="controls" ng-repeat="response in question.responseData">
+                		{{response.text}}  <input type="checkbox" data-ng-model="formAnswers[qIndex].answer[$index]" value="{{$index}}">
+                	</div>
+                </div>
+
+                <!-- Interval question -->
+                <div ng-switch-when="interval">
+                	<div class="controls" ng-repeat="response in interval(question.startValue, question.endValue, question.responseData[0].text)" required>
+                		{{response}}  <input type="radio" data-ng-model="formAnswers[qIndex]" value="{{$index}}">
+                	</div>
+                </div>
+
+                <!-- Text question -->
+                <div ng-switch-when="text">
+                	<input type="text" data-ng-model="formAnswers[qIndex]" value="{{$index}}" required>
+                </div>
+
+                <!-- Other-->
+                <div ng-switch-default>
+                	Unknown question type.
                 </div>
 			</div>
                 
