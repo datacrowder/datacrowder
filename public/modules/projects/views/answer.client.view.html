@@ -1,3 +1,33 @@
-<section data-ng-controller="AnswerController">
-	This is the Answer
+<section data-ng-controller="FeedController"  data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="project.headline"></h1>
+		<h3 data-ng-bind="project.description"></h3>
+	</div>
+	<form name="answerform" class="form-horizontal" data-ng-submit="answerform.$valid && answer()" novalidate>
+        <fieldset>
+            <!-- Question -->
+            <div class="form-group" ng-repeat="question in project.questions">
+                {{question.text}}
+                <div class="controls" ng-repeat="response in question.responseData">
+                	{{response.text}}  <input type="radio" data-ng-model="question.answer" value="{{response.text}}">
+                </div>
+			</div>
+                
+            <!-- Submit -->
+            <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Submit">
+            </div>
+			<div data-ng-show="error" class="text-danger">
+				<strong data-ng-bind="error"></strong>
+			</div>
+        </fieldset>
+    </form>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="project.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="project.user.displayName"></span>
+		</em>
+	</small>
 </section>
