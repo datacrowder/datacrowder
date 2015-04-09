@@ -10,6 +10,9 @@
 	</div>
 	<!-- In case the user is the project creator -->
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == project.user._id))">
+		<a class="btn btn-primary" href="/#!/projects/{{project._id}}/results">
+			<i class="glyphicon glyphicon-tasks"></i>
+		</a>
 		<a class="btn btn-primary" href="/#!/projects/{{project._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
@@ -21,6 +24,9 @@
 	<div class="pull-right" data-ng-show="((!authentication.user) || (authentication.user._id != project.user._id))">
 		<a class="btn btn-primary" href="/#!/projects/{{project._id}}/answer">
 			<i class="glyphicon glyphicon-list-alt"></i>
+		</a>
+		<a class="btn btn-primary" href="/#!/projects/{{project._id}}/results">
+			<i class="glyphicon glyphicon-tasks"></i>
 		</a>
 	</div>
 	<small>

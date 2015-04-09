@@ -1,0 +1,31 @@
+<section data-ng-controller="FeedController" data-ng-init="getProject()">
+	<div class="page-header">
+		<h1 data-ng-bind="project.headline"></h1>
+		<h3 data-ng-bind="project.description"></h3>
+		<div ng-repeat="question in project.questions" ng-switch="question.type">
+			<h3>{{question.text}}</h3>
+			<h4>Type: {{question.type}}</h4>
+			Answers:
+			<div ng-switch-when="text">
+				<div ng-repeat="answer in question.responses">
+					{{$index+1}}: {{answer.answerText}}
+				</div>
+			</div>
+			<div ng-switch-when="interval">
+				<div ng-repeat="answer in getIntervalValues(question) track by $index">
+					{{$index+1}}: {{answer}}
+				</div>
+			</div>
+
+			<div ng-switch-default>
+				<div ng-repeat="answer in question.responses">
+					{{$index+1}}: 
+					<span ng-repeat="choice in answer.answerIds">
+						{{question.responseData[choice].text}}
+					</span>
+				</div>
+			</div>
+		</div>
+		<h3>Closed: {{project.closed}}</h3>
+	</div>
+</section>

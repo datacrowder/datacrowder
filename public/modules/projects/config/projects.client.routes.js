@@ -28,6 +28,10 @@ angular.module('projects').config(['$stateProvider',
 		state('answer', {
 			url: '/projects/:projectId/answer',
 			templateUrl: 'modules/projects/views/answer.client.view.html'
+		}).
+		state('results', {
+			url: '/projects/:projectId/results',
+			templateUrl: 'modules/projects/views/results.client.view.html'
 		});
 	}
 ]);

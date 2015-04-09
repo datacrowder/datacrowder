@@ -11,7 +11,7 @@ angular.module('projects').controller('FeedController', ['$scope', '$stateParams
 		};
 
 		// Find existing Project form
-		$scope.findForm = function() {
+		$scope.getProject = function() {
 			$scope.project = Projects.Answer.get({
 				projectId: $stateParams.projectId
 			});
@@ -28,6 +28,18 @@ angular.module('projects').controller('FeedController', ['$scope', '$stateParams
 			}
 
 			return values;
+		};
+
+		// Get the values of interval answers 
+		$scope.getIntervalValues = function(question) {
+			var start = parseInt(question.startValue), step = parseInt(question.responseData[0].text);
+			var answerValues = [];
+
+			for (var i = 0; i < question.responses.length; i++) {
+				answerValues.push(start + question.responses[i].answerIds[0] * step);
+			}
+
+			return answerValues;
 		};
 
 		// Submit answer
