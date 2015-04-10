@@ -10,7 +10,6 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Create new Project
 		$scope.create = function() {
-			alert('aici');
 
 			// Create new Project object
 			var project = new Projects.General ({
