@@ -9,7 +9,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
 		$scope.signup = function() {
 			// Check retyped password
-			if ( $scope.credentials.password == $scope.checkPassword ) {
+			if ( $scope.credentials.password === $scope.checkPassword ) {
 				$http.post('/auth/signup', $scope.credentials).success(function(response) {
 					// If successful we assign the response to the global user model
 					$scope.authentication.user = response;
