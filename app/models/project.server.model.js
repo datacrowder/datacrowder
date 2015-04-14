@@ -21,6 +21,24 @@ var validateDescription = function(description) {
 };
 
 /*
+* Comment Schema
+*/
+var CommentSchema = new Schema({
+    text: {
+        type: String,
+		trim: true
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User'
+    },
+    created: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+/*
 * Response Schema
 */
 var ResponseSchema = new Schema({
@@ -91,6 +109,7 @@ var ProjectSchema = new Schema({
 		default: false
 	},
 	questions: [QuestionSchema],
+	comments: [CommentSchema],	
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
