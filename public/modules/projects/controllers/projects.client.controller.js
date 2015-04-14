@@ -10,12 +10,12 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Create new Project
 		$scope.create = function() {
-
 			// Create new Project object
 			var project = new Projects.General ({
 				headline: this.headline,
 				description: this.description,
-				questions: this.questions
+				questions: this.questions,
+				comments: []
 			});
 
 			// Redirect after save
@@ -101,5 +101,16 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 		$scope.removeResponse = function(question, index) {
 			question.responseData.splice(index, 1);
 		};
+
+		// Add a Comment
+		$scope.addComment = function() {
+			$scope.newComment.user = $scope.authentication.user._id;
+			$scope.project.comments.push($scope.newComment);
+
+			$scope.project.$update(function() {}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
 	}
 ]);
