@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('projects').controller('FeedController', ['$scope', '$stateParams', '$location', 'Authentication', 'Feed', 'Projects',
-    function($scope, $stateParams, $location, Authentication, Feed, Projects) {
+angular.module('projects').controller('FeedController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
+    function($scope, $stateParams, $location, Authentication, Projects) {
     	$scope.authentication = Authentication;
     	$scope.formAnswers = {};
 
 		// Find a list of Projects
 		$scope.feed = function() {
-			$scope.projects = Feed.query();
+			$scope.projects = Projects.Feed.query();
 		};
 
 		// Find existing Project form
 		$scope.getProject = function() {
-			$scope.project = Projects.Answer.get({
+			$scope.project = Projects.View.get({
 				projectId: $stateParams.projectId
 			});
 		};

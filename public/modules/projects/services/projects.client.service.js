@@ -5,8 +5,9 @@ angular.module('projects').factory('Projects', ['$resource',
 	function($resource) {
 		return {
 			General: $resource('projects', { projectId: '@_id' }, { update: { method: 'PUT' } }),
+			Feed: $resource('feed', { projectId: '@_id' }, { update: { method: 'PUT' } }),
 			View: $resource('projects/:projectId/view', { projectId: '@_id' }, { update: { method: 'PUT' } }),
-			Answer: $resource('projects/:projectId/answer', { projectId: '@_id' }, { update: { method: 'PUT' } })
+			Edit: $resource('projects/:projectId/edit', { projectId: '@_id' }, { update: { method: 'PUT' } })
 		};
 	}
 ]);

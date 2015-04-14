@@ -65,7 +65,7 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 
 		// Find existing Project
 		$scope.findOne = function() {
-			$scope.project = Projects.View.get({
+			$scope.project = Projects.Edit.get({
 				projectId: $stateParams.projectId
 			});
 		};
