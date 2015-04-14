@@ -1,10 +1,10 @@
 'use strict';
 
 (function() {
-	// Feed Controller Spec
-	describe('Feed Controller Tests', function() {
+	// Crud Controller Spec
+	describe('Crud Controller Tests', function() {
 		// Initialize global variables
-		var FeedController,
+		var CrudController,
 			scope,
 			$httpBackend,
 			$stateParams,
@@ -44,8 +44,8 @@
 			$httpBackend = _$httpBackend_;
 			$location = _$location_;
 
-			// Initialize the Feed controller.
-			FeedController = $controller('FeedController', {
+			// Initialize the Crud controller.
+			CrudController = $controller('CrudController', {
 				$scope: scope
 			});
 		}));

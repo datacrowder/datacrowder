@@ -1,7 +1,6 @@
 'use strict';
 
-// Projects controller
-angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
+angular.module('projects').controller('CrudController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
     function($scope, $stateParams, $location, Authentication, Projects) {
 		$scope.authentication = Authentication;
 		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'dropdown', 'text'];
@@ -11,7 +10,7 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 		// Create new Project
 		$scope.create = function() {
 			// Create new Project object
-			var project = new Projects.General ({
+			var project = new Projects.Research ({
 				headline: this.headline,
 				description: this.description,
 				questions: this.questions,
@@ -58,13 +57,8 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 			});
 		};
 
-		// Find a list of Projects
-		$scope.find = function() {
-			$scope.projects = Projects.General.query();
-		};
-
-		// Find existing Project
-		$scope.findOne = function() {
+		// Get existing Project
+		$scope.getProject = function() {
 			$scope.project = Projects.Edit.get({
 				projectId: $stateParams.projectId
 			});
@@ -100,16 +94,6 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 		// Remove a Response
 		$scope.removeResponse = function(question, index) {
 			question.responseData.splice(index, 1);
-		};
-
-		// Add a Comment
-		$scope.addComment = function() {
-			$scope.newComment.user = $scope.authentication.user._id;
-			$scope.project.comments.push($scope.newComment);
-
-			$scope.project.$update(function() {}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
 		};
 
 	}

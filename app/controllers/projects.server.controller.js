@@ -30,7 +30,16 @@ exports.create = function(req, res) {
  * Show the current Project
  */
 exports.read = function(req, res) {
-	res.jsonp(req.project);
+	//res.jsonp(req.project);
+	Project.findOne({ '_id' : req.project._id }).populate('user').populate('comments.user').exec(function(err, project) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(project);
+		}
+	});
 };
 
 /**
