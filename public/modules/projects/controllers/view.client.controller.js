@@ -3,6 +3,7 @@
 angular.module('projects').controller('ViewController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
     function($scope, $stateParams, $location, Authentication, Projects) {
 		$scope.authentication = Authentication;
+		$scope.newComment = '';
 
 		// Get existing Project
 		$scope.getProject = function() {
@@ -13,7 +14,8 @@ angular.module('projects').controller('ViewController', ['$scope', '$stateParams
 
 		// Add a Comment
 		$scope.addComment = function() {
-			$scope.newComment.user = $scope.authentication.user._id;
+			if ( $scope.authentication.user )
+				$scope.newComment.user = $scope.authentication.user._id;
 			$scope.project.comments.push($scope.newComment);
 
 			$scope.project.$update(function() {}, function(errorResponse) {

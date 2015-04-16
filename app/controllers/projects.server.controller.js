@@ -46,7 +46,7 @@ exports.read = function(req, res) {
  * Update a Project
  */
 exports.update = function(req, res) {
-	var project = req.project ;
+	var project = req.project;
 
 	project = _.extend(project , req.body);
 
@@ -65,7 +65,7 @@ exports.update = function(req, res) {
  * Delete an Project
  */
 exports.delete = function(req, res) {
-	var project = req.project ;
+	var project = req.project;
 
 	project.remove(function(err) {
 		if (err) {

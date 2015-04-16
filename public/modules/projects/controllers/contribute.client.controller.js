@@ -69,7 +69,7 @@ angular.module('projects').controller('ContributeController', ['$scope', '$state
 				}
 
 				// Check if user is authenticated
-				if ( typeof $scope.authentication.user._id !== 'undefined' )
+				if ( $scope.authentication.user && typeof $scope.authentication.user._id !== 'undefined' )
 					answer.user = $scope.authentication.user._id;
 
 				project.questions[i].responses.push(answer);
