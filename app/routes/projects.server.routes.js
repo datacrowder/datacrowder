@@ -23,7 +23,7 @@ module.exports = function(app) {
 			console.log('view');
 			next();
 		}, projects.read)
-		.put(projects.update);
+		.put(users.requiresLogin, projects.update);
 
 	app.route('/projects/:projectId/edit')
 		.get(function (req,res,next) {
