@@ -22,10 +22,10 @@
                 </div>
 
                 <!-- Conclusion -->
-                <div class="form-group">
-                    <label class="control-label" for="conclusion">Description</label>
+                <div class="form-group" data-ng-show="project.closed == true">
+                    <label class="control-label" for="conclusion">Conclusion</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="project.description" id="description" class="form-control" placeholder="Description" required>
+                        <input type="text" data-ng-model="project.conclusion" id="conclusion" class="form-control" placeholder="Conclusion">
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
             </fieldset>
         </form>
 
-                <h4>Responses: {{project.questions[0].responses.length}}</h4>
+        <h4>Responses: {{project.questions[0].responses.length}}</h4>
     </div>
 
     <div class="pull-right">
