@@ -77,6 +77,12 @@
                     </a>
                 </div>
 
+                <!-- Question type -->
+                <div class="form-group">
+                    <label class="control-label" for="genderSelector">Gender group</label>
+                    <select class="form-control" ng-model="genderGroup" ng-options="gender as gender for gender in genderTypes" id="genderSelector"></select>
+                </div>
+
                 <!-- Button -->
                 <div class="form-group">
                     <!-- Add question -->

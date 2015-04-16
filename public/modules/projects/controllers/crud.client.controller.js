@@ -6,15 +6,19 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'dropdown', 'text'];
 		$scope.statusTypes = [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
 		$scope.questions = [{text: '', type: ''}];
+		$scope.genderTypes = ['all', 'male', 'female'];
+		$scope.genderGroup = $scope.genderTypes[0];
 
 		// Create new Project
 		$scope.create = function() {
+
 			// Create new Project object
 			var project = new Projects.Research ({
 				headline: this.headline,
 				description: this.description,
 				questions: this.questions,
-				comments: []
+				comments: [],
+				genderGroup: this.genderGroup
 			});
 
 			// Redirect after save

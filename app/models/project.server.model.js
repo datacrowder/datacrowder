@@ -115,7 +115,7 @@ var ProjectSchema = new Schema({
     },
     genderGroup: {
         type: String,
-        default: ''
+        default: 'all'
     },
     errorMargin: {
         type: Number
