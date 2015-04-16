@@ -12,6 +12,8 @@
 			</small>
             <h4 class="list-group-item-heading" data-ng-bind="project.headline"></h4>
 			<h5 class="list-group-item-heading" data-ng-bind="project.description"></h5>
+            <h5>{{project.questions[0].responses.length}} {{project.questions[0].responses.length == 1 ? "response":"responses"}}, 
+                {{project.comments.length}} {{project.comments.length == 1 ? "comment":"comments"}}</h5>
         </a>
     </div>
 </section>
