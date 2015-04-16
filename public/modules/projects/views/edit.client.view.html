@@ -21,6 +21,14 @@
                     </div>
                 </div>
 
+                <!-- Conclusion -->
+                <div class="form-group">
+                    <label class="control-label" for="conclusion">Description</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="project.description" id="description" class="form-control" placeholder="Description" required>
+                    </div>
+                </div>
+
                 <!-- Status -->
                 <div class="form-group">
                     <label class="control-label" for="status">Status</label>
@@ -29,9 +37,6 @@
 
                 <!-- Button -->
                 <div class="form-group">
-                    <!-- Add question -->
-                    <button type="button" ng-click="addQuestion(project)" class="btn btn-default">Add question</button>
-
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
 				<div data-ng-show="error" class="text-danger">
@@ -39,6 +44,8 @@
 				</div>
             </fieldset>
         </form>
+
+                <h4>Responses: {{project.questions[0].responses.length}}</h4>
     </div>
 
     <div class="pull-right">
