@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('projects').controller('AnswerController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
+angular.module('projects').controller('ContributeController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
     function($scope, $stateParams, $location, Authentication, Projects) {
     	$scope.authentication = Authentication;
     	$scope.formAnswers = {};
 
 		// Find existing Project form
 		$scope.getProject = function() {
-			$scope.project = Projects.View.get({
+			$scope.project = Projects.Contribute.get({
 				projectId: $stateParams.projectId
 			});
 		};

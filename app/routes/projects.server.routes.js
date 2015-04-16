@@ -18,6 +18,13 @@ module.exports = function(app) {
 		},projects.list)
 		.post(users.requiresLogin, projects.create);
 
+	app.route('/projects/:projectId/contribute')
+		.get(function (req,res,next) {
+			console.log('contribute');
+			next();
+		}, projects.read)
+		.put(projects.update);
+
 	app.route('/projects/:projectId/view')
 		.get(function (req,res,next) {
 			console.log('view');
