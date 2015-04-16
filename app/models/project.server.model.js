@@ -52,6 +52,10 @@ var ResponseSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
+    ip: {
+        type: String,
+        default: ''
+    },
     created: {
         type: Date,
         default: Date.now
