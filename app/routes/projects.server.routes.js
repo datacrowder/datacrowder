@@ -22,7 +22,7 @@ module.exports = function(app) {
 		.get(function (req,res,next) {
 			console.log('contribute');
 			next();
-		}, projects.read)
+		}, projects.isClosed, projects.read)
 		.put(projects.update);
 
 	app.route('/projects/:projectId/view')

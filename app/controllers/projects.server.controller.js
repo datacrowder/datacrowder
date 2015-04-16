@@ -62,7 +62,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an Project
+ * Delete a Project
  */
 exports.delete = function(req, res) {
 	var project = req.project;
@@ -141,4 +141,16 @@ exports.hasAuthorization = function(req, res, next) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
+};
+
+/**
+ * Check if a Project is closed
+ */
+exports.isClosed = function(req, res, next) {
+	if (req.project.closed === true ) {
+		return res.status(400).send('Project is closed.');
+	}
+	else {
+		next();
+	}
 };
