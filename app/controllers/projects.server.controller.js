@@ -30,7 +30,13 @@ exports.create = function(req, res) {
  * Show the current Project
  */
 exports.read = function(req, res) {
-	//res.jsonp(req.project);
+	res.jsonp(req.project);
+};
+
+/**
+ * Show the current Project plus get the authors of its comments
+ */
+exports.readComments = function(req, res) {
 	Project.findOne({ '_id' : req.project._id }).populate('user').populate('comments.user').exec(function(err, project) {
 		if (err) {
 			return res.status(400).send({
@@ -43,7 +49,7 @@ exports.read = function(req, res) {
 };
 
 /**
- * Update a Project
+ * Update a Projects
  */
 exports.update = function(req, res) {
 	var project = req.project;
@@ -52,6 +58,7 @@ exports.update = function(req, res) {
 
 	project.save(function(err) {
 		if (err) {
+			console.log(err);
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});

@@ -29,7 +29,7 @@ module.exports = function(app) {
 		.get(function (req,res,next) {
 			console.log('view');
 			next();
-		}, projects.read)
+		}, projects.readComments)
 		.put(users.requiresLogin, projects.update);
 
 	app.route('/projects/:projectId/edit')
