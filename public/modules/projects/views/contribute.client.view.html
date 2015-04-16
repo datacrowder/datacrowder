@@ -25,8 +25,8 @@
 
                 <!-- Interval question -->
                 <div ng-switch-when="interval">
-                	<div class="controls" ng-repeat="response in interval(question.startValue, question.endValue, question.responseData[0].text)" required>
-                		{{response}}  <input type="radio" data-ng-model="formAnswers[qIndex]" value="{{$index}}">
+                	<div class="controls" ng-repeat="response in interval(question.startValue, question.endValue, question.responseData[0].text)">
+                		{{response}}  <input type="radio" data-ng-model="formAnswers[qIndex]" value="{{$index}}" required>
                 	</div>
                 </div>
 

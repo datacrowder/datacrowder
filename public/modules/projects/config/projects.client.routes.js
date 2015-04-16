@@ -25,8 +25,8 @@ angular.module('projects').config(['$stateProvider',
 			url: '/projects/:projectId/edit',
 			templateUrl: 'modules/projects/views/edit.client.view.html'
 		}).
-		state('answer', {
-			url: '/projects/:projectId/answer',
+		state('contribute', {
+			url: '/projects/:projectId/contribute',
 			templateUrl: 'modules/projects/views/contribute.client.view.html'
 		}).
 		state('results', {
