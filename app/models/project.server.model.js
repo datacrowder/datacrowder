@@ -104,6 +104,18 @@ var ProjectSchema = new Schema({
 		validate: [validateDescription, 'Description is longer than 141 characters'],
 		trim: true
 	},
+    conclusion: {
+        type: String,
+        default: '',
+        trim: true        
+    },
+    genderGroup: {
+        type: String,
+        default: ''
+    },
+    errorMargin: {
+        type: Number
+    },
 	closed: {
 		type: Boolean,
 		default: false
