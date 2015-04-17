@@ -13,5 +13,10 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 		$scope.feed = function() {
 			$scope.projects = Projects.Feed.query({q: $location.search().q, type: $location.search().type});
 		};
+
+		// Get the feed
+		$scope.changeType = function(projectType) {
+			$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType});
+		};
 	}
 ]);
