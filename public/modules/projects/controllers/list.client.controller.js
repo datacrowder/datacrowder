@@ -11,7 +11,7 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 
 		// Get the feed
 		$scope.feed = function() {
-			$scope.projects = Projects.Feed.query();
+			$scope.projects = Projects.Feed.query({q: $location.search().q, type: $location.search().type});
 		};
 	}
 ]);

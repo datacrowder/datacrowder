@@ -104,8 +104,29 @@ exports.list = function(req, res) {
  * Feed of Projects
  */
 exports.feed = function(req, res) { 
+
+	// Build the search query
+	var query = {};
+
+	// If user is logged in, only return the other projects
 	if ( req.user ) {
-		Project.find({ 'user' : { $ne : req.user._id }} ).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+		query.user = { $ne : req.user._id };
+	}
+
+	// If the user entered a project query, check the headline or the description
+	if ( typeof req.query.q !== 'undefined' ){
+		query.$or = [ {headline : { '$regex': req.query.q, '$options': 'i' }}, {description : { '$regex': req.query.q, '$options': 'i' }} ];
+	}
+
+	// If the user selected a  type of project, check the project status
+	if ( typeof req.query.type !== 'undefined' ){
+		if ( req.query.type === 'true' )
+			query.closed = true;
+		else if ( req.query.type === 'false' )
+			query.closed = false;
+	}
+
+	Project.find(query).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
 			if (err) {
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
@@ -114,18 +135,6 @@ exports.feed = function(req, res) {
 				res.jsonp(projects);
 			}
 		});
-	}
-	else {
-		Project.find().sort('-created').populate('user', 'displayName').exec(function(err, projects) {
-			if (err) {
-				return res.status(400).send({
-					message: errorHandler.getErrorMessage(err)
-				});
-			} else {
-				res.jsonp(projects);
-			}
-		});		
-	}
 };
 
 /**
