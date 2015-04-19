@@ -54,10 +54,13 @@ Cele mai importante foldere sunt app si public/modules.
 5. App route: app/routes/<module>.routes
 6. App controller: app/controllers/<module>.controller
 
+Ce e important de notat aici este ca url-ul pe care il asociezi unui View (asociere stabilita in Public routes) este irelevant cand vine vorba de apelarea serverului. Pentru server conteaza doar ce ruta a avut asociata resursa in Service si apoi ruta corespunzatoare din App Routes.
+
 
 ### Structura modul Projects
 
 ####Views:
+
 	* Feed 		
 		- pagina de feed 
 		- controller: List
@@ -78,6 +81,7 @@ Cele mai importante foldere sunt app si public/modules.
 		- controller: Contribute
 
 ####Route:
+
 	- rutele din projects/services
 	- fiecare ruta corespunde unei rute a aplicatiei (app/routes/projects)
 	- fiecare ruta are asociate niste views (projects/views); views sunt grupate dupa functiile diferite de care au nevoie pe server; de exemplu, Feed apeleaza functia feed(), iar Research functie list() pentru GET
