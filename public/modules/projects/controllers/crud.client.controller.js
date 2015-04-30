@@ -11,6 +11,7 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 
 		// Create new Project
 		$scope.create = function() {
+			alert($scope.region);
 
 			// Create new Project object
 			var project = new Projects.Research ({
@@ -18,7 +19,8 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 				description: this.description,
 				questions: this.questions,
 				comments: [],
-				genderGroup: this.genderGroup
+				genderGroup: this.genderGroup,
+				region: this.region
 			});
 
 			// Redirect after save

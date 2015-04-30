@@ -117,6 +117,10 @@ var ProjectSchema = new Schema({
         type: String,
         default: 'all'
     },
+    region: {
+        type: Schema.ObjectId,
+        ref: 'Region'
+    },
     errorMargin: {
         type: Number
     },

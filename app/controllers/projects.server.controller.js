@@ -37,7 +37,7 @@ exports.read = function(req, res) {
  * Show the current Project plus get the authors of its comments
  */
 exports.readWithComments = function(req, res) {
-	Project.findOne({ '_id' : req.project._id }).populate('user').populate('comments.user').exec(function(err, project) {
+	Project.findOne({ '_id' : req.project._id }).populate('user').populate('comments.user').populate('region', 'name').exec(function(err, project) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
