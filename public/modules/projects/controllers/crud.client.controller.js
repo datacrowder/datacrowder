@@ -11,7 +11,8 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 
 		// Create new Project
 		$scope.create = function() {
-			alert($scope.region);
+			var ss = 600.25;
+			var newSS = ss / (1 + ((ss - 1) / $scope.region.population));
 
 			// Create new Project object
 			var project = new Projects.Research ({
@@ -20,7 +21,7 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 				questions: this.questions,
 				comments: [],
 				genderGroup: this.genderGroup,
-				region: this.region
+				region: this.region._id
 			});
 
 			// Redirect after save
@@ -123,6 +124,7 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 		};*/
 
 
+		// Get the list of regions
 		$scope.getRegions = function() {
 			$scope.regions = Regions.query();
 		};
