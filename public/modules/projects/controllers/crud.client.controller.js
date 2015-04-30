@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('projects').controller('CrudController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects',
-    function($scope, $stateParams, $location, Authentication, Projects) {
+angular.module('projects').controller('CrudController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects', 'Regions',
+    function($scope, $stateParams, $location, Authentication, Projects, Regions) {
 		$scope.authentication = Authentication;
 		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'dropdown', 'text'];
 		$scope.statusTypes = [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
@@ -98,6 +98,31 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 		// Remove a Response
 		$scope.removeResponse = function(question, index) {
 			question.responseData.splice(index, 1);
+		};
+
+
+		/*$scope.addRegion = function() {
+
+			// Create new Region object
+			var region = new Regions ({
+				name: 'Mitte',
+				population: 332100,
+				parent: $scope.regions[34]._id
+			});
+
+			// Redirect after save
+			region.$save(function(response) {
+
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+
+			
+		};*/
+
+
+		$scope.getRegions = function() {
+			$scope.regions = Regions.query();			
 		};
 
 	}

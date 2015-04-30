@@ -11,10 +11,19 @@ var mongoose = require('mongoose'),
  */
 var RegionSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        trim: true  
     },
     population: {
         type: Number
+    },
+    parent: {
+        type: Schema.ObjectId,
+        ref: 'Region'    	
+    },
+    updated: {
+        type: Date,
+        default: Date.now    	
     }
 });
 
