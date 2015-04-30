@@ -122,7 +122,7 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 
 
 		$scope.getRegions = function() {
-			$scope.regions = Regions.query();			
+			$scope.regions = Regions.query();
 		};
 
 	}
