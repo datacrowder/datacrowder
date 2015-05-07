@@ -21,7 +21,8 @@ angular.module('projects').controller('CrudController', ['$scope', '$stateParams
 				questions: this.questions,
 				comments: [],
 				genderGroup: this.genderGroup,
-				region: this.region._id
+				region: this.region._id,
+				sampleSize: newSS
 			});
 
 			// Redirect after save

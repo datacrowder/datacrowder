@@ -121,7 +121,7 @@ var ProjectSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Region'
     },
-    errorMargin: {
+    sampleSize: {
         type: Number
     },
 	closed: {
