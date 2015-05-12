@@ -19,6 +19,8 @@ body.ng-cloak
 	display: block;
 }
 
+/* Added */
+
 .intro-line {
     background: none repeat scroll 0 0 #f41535;
     height: 4px;
@@ -29,11 +31,16 @@ body.ng-cloak
 }
 
 .particles-light {   
-	 height: 60%;
+	height: 60%;
     background-color: lightblue;
 }
 
 .social-footer {
-  background-color: gray;
-  height: 50px;
+	background-color: gray;
+	height: 50px;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
 }
