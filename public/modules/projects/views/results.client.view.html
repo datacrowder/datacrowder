@@ -19,7 +19,7 @@
 
 			<div ng-switch-default>
 				<div ng-repeat="answer in question.responses">
-					{{$index+1}}: 
+					{{$index+1}}:
 					<span ng-repeat="choice in answer.answerIds">
 						{{question.responseData[choice].text}}
 					</span>

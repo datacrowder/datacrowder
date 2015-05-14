@@ -49,7 +49,7 @@ Cele mai importante foldere sunt app si public/modules.
 
 1. Public routes: public/modules/<module>/config/routes.js)
 2. View: public/modules/<module>/views)
-3. Controller: public/modules/<module>/controllers) 
+3. Controller: public/modules/<module>/controllers)
 4. Service: public/modules/<module>/services)
 5. App route: app/routes/<module>.routes
 6. App controller: app/controllers/<module>.controller
@@ -61,11 +61,11 @@ Ce e important de notat aici este ca url-ul pe care il asociezi unui View (asoci
 
 ####Views:
 
-	* Feed 		
-		- pagina de feed 
+	* Feed
+		- pagina de feed
 		- controller: List
 	* Create
-		- pagina de create project 
+		- pagina de create project
 		- controller: Crud
 	* Research
 		- pagina cu proiectele create de un user
@@ -85,9 +85,30 @@ Ce e important de notat aici este ca url-ul pe care il asociezi unui View (asoci
 	- rutele din projects/services
 	- fiecare ruta corespunde unei rute a aplicatiei (app/routes/projects)
 	- fiecare ruta are asociate niste views (projects/views); views sunt grupate dupa functiile diferite de care au nevoie pe server; de exemplu, Feed apeleaza functia feed(), iar Research functie list() pentru GET
-	
+
 	Feed - pentru List View
 	Research - pentru Research, Create
 	Edit - pentru Edit
 	View - pentru View
 	Contribute - pentru Contribute
+
+
+## INSTALLING
+
+### Clone and setup
+    git clone git@github.com:vladootz/datacrowder.git
+    npm install
+    bower install
+
+### Import database
+    mongorestore --db datacrowder --collection projects ./database/datacrowder/projects.bson
+    mongorestore --db datacrowder --collection regions ./database/datacrowder/regions.bson
+    mongorestore --db datacrowder --collection sessions ./database/datacrowder/sessions.bson
+    mongorestore --db datacrowder --collection users ./database/datacrowder/users.bson
+    mongorestore --db datacrowder --collection system.indexes ./database/datacrowder/system.indexes.bson
+
+### Export database
+    mongodump -h localhost:27017 -d datacrowder -u <username> -p <password> -o ./database/
+
+### Run with development env
+    NODE_ENV=development grunt

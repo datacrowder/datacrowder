@@ -25,7 +25,7 @@ angular.module('projects').controller('ContributeController', ['$scope', '$state
 			return values;
 		};
 
-		// Get the values of interval answers 
+		// Get the values of interval answers
 		$scope.getIntervalValues = function(question) {
 			var start = parseInt(question.startValue), step = parseInt(question.responseData[0].text);
 			var answerValues = [];
@@ -74,7 +74,7 @@ angular.module('projects').controller('ContributeController', ['$scope', '$state
 
 				project.questions[i].responses.push(answer);
 			}
-			
+
 			project.$update(function() {
 				$location.path('feed'); // projects/id
 			}, function(errorResponse) {
