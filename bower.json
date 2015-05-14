@@ -11,6 +11,9 @@
     "angular-bootstrap": "~0.12.0",
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.11",
-    "angular-fusioncharts": "~0.0.2"
+    "angular-chart": "~0.2.9"
+  },
+  "resolutions": {
+    "angular": "~1.3.x"
   }
 }
