@@ -109,7 +109,7 @@ exports.feed = function(req, res) {
 	var query = {};
 
 	// If user is logged in, only return the other projects
-	if ( req.user ) {
+	if ( req.user && ( typeof req.query.all === 'undefined' || req.query.all === false ) ) {
 		query.user = { $ne : req.user._id };
 	}
 
@@ -126,7 +126,7 @@ exports.feed = function(req, res) {
 			query.closed = false;
 	}
 
-	Project.find(query).sort('-created').populate('user', 'displayName').exec(function(err, projects) {
+	Project.find(query).sort('-created').populate('user', 'displayName').populate('region').exec(function(err, projects) {
 			if (err) {
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)

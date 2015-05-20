@@ -1,6 +1,6 @@
 .content {
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-top: 100px;
+	padding-bottom: 200px;
 	height: 100%;
 }
 .undecorated-link:hover {
@@ -23,27 +23,16 @@ body.ng-cloak
 
 /* Added */
 
-.intro-line {
-    background: none repeat scroll 0 0 #f41535;
-    height: 4px;
-    top: 38%;
-    width: 80px;    
-    position: relative;
-    display: inline-block;
-}
+/* General */
 
-.particles-light {   
+section {
+	min-height: 100%;
 	height: 100%;
-    background-image: url("../img/bg/bg9.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
- 	color: white;
 }
 
-.social-footer {
-	background-color: gray;
-	height: 50px;
+html, body {
+	height: 100%;
+	/*min-width: 600px;*/
 }
 
 .row {
@@ -55,25 +44,176 @@ body.ng-cloak
 /* Navbar */ 
 .navbar-inverse {
 	background-image: none;
-	background-color: white;
-	/*border-color: white;*/
+	border-color: white;
 }
 
 .navbar {
-	min-height: 80px;
+	min-height: 100px;
 }
 
-section {
-	min-height: 100%;
-	height: 100%;
+.navbar-fixed-bottom {
+	background-color: #f8f8f8;
+	min-height: 200px;
 }
 
-html, body {
-	height: 100%;
+.navbar-fixed-top {
+	background-color: #ffffff;
 }
 
 .transparent-button {
 	background: transparent;
 	box-shadow: none;
 	border-color: transparent;
+}
+
+.social-footer {
+	background-color: gray;
+	height: 50px;
+}
+
+/* Home */
+
+.intro-line {
+    background: none repeat scroll 0 0 rgb(244, 21, 53);
+    height: 4px;
+    top: 38%;
+    width: 80px;    
+    position: relative;
+    display: inline-block;
+}
+
+.particles-light {   
+	height: 100%;
+    background-image: url("../img/home/home_background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 78.57%;
+ 	color: white;
+}
+
+.homepage-text {
+	font-family: OpenSans;
+	color: #ffffff;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;   
+}
+
+.homepage-text-large {
+	font-size: 80px;
+	font-weight: 700;
+	line-height: 30px;
+	padding-bottom: 30px;
+}
+
+.homepage-text-small { 
+	padding-top: 30px; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+}
+
+.home-margin {
+	height: 13%;
+}
+
+.feed-pictures {
+	height: 40%;
+	bottom: 0;
+    /*margin-top: 15%;*/
+}
+
+.feed-tab {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.black {
+	background-color: black;
+	height: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.feed-tab:hover {
+    opacity: 0.85;	
+}
+
+.feed-text {
+    font-family: Karbon;
+	color: #f41535;
+	text-align: center;
+	font-weight: 700;
+	height: 100%;
+	font-size: 14px;
+	line-height: 18px;
+	padding-top: 10%;
+}
+
+.feed-text-large {
+	font-size: 36px;
+	line-height: 30px;
+}
+
+.berlin-feed {
+    background-image: url("../img/home/berlinphoto.jpg");
+    margin-right: 1px;
+}
+
+.london-feed {
+    background-image: url("../img/home/londonphoto.jpg");
+
+}
+
+.feed-photo-text {
+	height: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;    
+	margin-top: 3%;
+}
+
+.margin1 {
+	height: 15%;
+}
+
+.margin2 {
+	height: 12%;
+}
+
+/* Small width */
+@media (max-width: 700px), (max-height: 800px){
+	
+	.homepage-text-large {
+		font-size: 40px;
+		padding-bottom: 15px;
+	}
+
+	.homepage-text-small { 
+		font-size: 15px;
+		padding-top: 15px;
+	}
+
+	.feed-photo-text {
+		height: 30%;
+	}
+
+	.feed-text {
+		font-size: 10px;
+		line-height: 12px;
+		padding-top: 25%;
+	}
+
+	.feed-text-large {
+		font-size: 24px;
+		line-height: 10px;
+	}
+}
+
+
+/* Small height */
+@media (max-height: 700px) {
+	
 }
