@@ -67,8 +67,14 @@ html, body {
 }
 
 .social-footer {
-	background-color: gray;
-	height: 50px;
+	background-color: #ffffff;
+	height: 100px;
+	padding-top: 40px;
+}
+
+.social-image {
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 /* Home */
