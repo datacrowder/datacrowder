@@ -77,6 +77,15 @@ html, body {
 	margin-right: 20px;
 }
 
+.menu-footer {
+	padding-top: 30px;
+}
+
+.footer-link {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
 /* Home */
 
 .intro-line {
