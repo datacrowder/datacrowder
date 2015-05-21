@@ -72,6 +72,10 @@ html, body {
 	padding-top: 40px;
 }
 
+.social-footer > a:hover {
+	text-decoration: none;
+}
+
 .social-image {
 	margin-left: 20px;
 	margin-right: 20px;
@@ -79,11 +83,17 @@ html, body {
 
 .menu-footer {
 	padding-top: 30px;
+	color: #4b4b4b;
+	font-family: OpenSans;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 20px;
 }
 
 .footer-link {
 	margin-left: 20px;
 	margin-right: 20px;
+	color: #4b4b4b;
 }
 
 /* Home */
