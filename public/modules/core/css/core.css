@@ -67,25 +67,25 @@ html, body {
 	padding: 0;
 }
 
-.navbar-form .form-group {
-	width: 100%;
+.navbar-form .form-group {    
+	background-color: rgba(191, 191, 191, 0.1);	
+	display: block;
+    height: 100px;
+    margin: auto;
+    width: 36%;
 }
 
 
 .navbar-form .form-control {
-	display: block;
 	border: none;
-    margin: auto;
-    width: 36%;
-	background-color: rgba(191, 191, 191, 0.1);	
 	height: 100px;
     margin: auto;
-    padding: 0;
     border-radius: 0;
 }
 
 .search-bar {
 	/*background: url("../img/navbar/search_img.png") no-repeat scroll 30px 40px;*/
+	background-color: rgba(191, 191, 191, 0.1);	
 	height: 100%;    
 	border: 0 none;
     border-radius: 0;
@@ -95,15 +95,7 @@ html, body {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 30px;
-	padding-left: 5px;
-}
-
-input:active, input:hover, input:focus
-{
-    outline:0px !important;
-    border: none;
-    border-radius: 0;
-    -webkit-appearance:none;
+	padding: 0 10px;
 }
 
 .search-bar::-moz-placeholder {
@@ -115,6 +107,7 @@ input:active, input:hover, input:focus
 	box-shadow: none;
 	border-color: transparent;
 	padding: 0;
+	margin: 0;
 	width: 8%;
 }
 
