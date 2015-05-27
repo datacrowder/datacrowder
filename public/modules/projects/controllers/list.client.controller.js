@@ -55,7 +55,17 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 
 		// Change the type
 		$scope.changeType = function(projectType) {
-			$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType});
+			if ( typeof $location.search().place !== 'undefined' ) {
+				$scope.regions = Regions.query({}, function () {
+					$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType}, function () {
+						// If there is a location, filter the results
+						$scope.filterLocation();
+					});
+				});
+			}
+			else {
+				$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType});
+			}			
 		};
 	}
 ]);
