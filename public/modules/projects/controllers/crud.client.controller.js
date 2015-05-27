@@ -3,7 +3,7 @@
 angular.module('projects').controller('CrudController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects', 'Regions',
     function($scope, $stateParams, $location, Authentication, Projects, Regions) {
 		$scope.authentication = Authentication;
-		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'dropdown', 'text'];
+		$scope.questionTypes = ['single choice', 'multiple choice', 'interval', 'text'];
 		$scope.statusTypes = [{ value: true, name: 'Story' }, { value: false, name: 'Project' }];
 		$scope.questions = [{text: '', type: ''}];
 		$scope.genderTypes = ['all', 'male', 'female'];
