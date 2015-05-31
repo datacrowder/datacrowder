@@ -1,15 +1,15 @@
 <section data-ng-controller="ListController" data-ng-init="feed()">
-    <div class="particles-light">
-        <div class="page-header">
-            <h1>Feed</h1>
-        </div>
-
-        <div class="form-group">
-            <button type="button" ng-click="changeType(false)" class="btn btn-default">Open projects</button>
-            <button type="button" ng-click="changeType(true)" class="btn btn-default">Stories</button>
+    <div class="footer-content particles-light background-repeat">
+        <div class="type-selection-div form-group">
+            <div class="type-option-div col-xs-5 col-xs-offset-1">
+                <a ng-click="changeType(false)" class="type-link">BROWSE OPEN PROJECTS</a>
+            </div>
+            <div class="type-option-div col-xs-5 col-xs-offset-1">
+                <a ng-click="changeType(true)" class="type-link">BROWSE STORIES</a>
+            </div>
         </div>
         
-        <div class="list-group">
+        <div class="feed-list">
             <a data-ng-repeat="project in projects" data-ng-href="#!/projects/{{project._id}}" class="list-group-item">
     			<small class="list-group-item-text">
     				Posted on
@@ -24,4 +24,13 @@
             </a>
         </div>
     </div>
+
+    <div class="create-project-div">
+        <div class="row blue-text">Feeling curious or starstruck?</div>
+        <div class="row red-text">CREATE A PROJECT</div>  
+        <a href="/#!/projects/create" class="create-link">
+            <img src="modules/core/img/navbar/create-project.png">
+        </a>      
+    </div>   
+
 </section>
