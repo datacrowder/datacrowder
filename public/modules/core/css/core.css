@@ -40,6 +40,36 @@ html, body {
 	margin-right: 0;
 }
 
+.blue-text {
+	color: #0a024b
+}
+
+.red-text {
+	color: #f41535;
+}
+
+.full-content {
+	height: 100%;
+}
+
+.padding-content {
+	height: 100%;
+	padding-bottom: 150px;
+}
+
+.particles-light {   
+	background-image: url("../img/home/home_background.png");
+}
+
+.home-background {
+    background-repeat: no-repeat;
+    background-size: 100% 78.57%;	
+}
+
+.repeat-background {
+	background-repeat: repeat;
+}
+
 
 /* Navbar */ 
 .navbar-inverse {
@@ -153,6 +183,7 @@ html, body {
 	color: #4b4b4b;
 }
 
+
 /* Home */
 
 .intro-line {
@@ -162,14 +193,6 @@ html, body {
     width: 80px;    
     position: relative;
     display: inline-block;
-}
-
-.particles-light {   
-	height: 100%;
-    background-image: url("../img/home/home_background.png");
-    background-repeat: no-repeat;
-    background-size: 100% 78.57%;
- 	color: white;
 }
 
 .homepage-text {
@@ -212,7 +235,7 @@ html, body {
     width: 100%;
 }
 
-.black {
+.black-background {
 	background-color: black;
 	height: 100%;
     padding-right: 0;
@@ -241,12 +264,11 @@ html, body {
 
 .berlin-feed {
     background-image: url("../img/home/berlinphoto.jpg");
-    margin-right: 1px;
+    margin-right: 6px;
 }
 
 .london-feed {
     background-image: url("../img/home/londonphoto.jpg");
-
 }
 
 .feed-photo-text {
@@ -257,13 +279,75 @@ html, body {
 	margin-top: 3%;
 }
 
-.margin1 {
+.vertical-padding1 {
 	height: 15%;
 }
 
-.margin2 {
+.vertical-padding2 {
 	height: 12%;
 }
+
+
+/* Feed */
+
+.feed-list {
+	height: 80%;
+	overflow: auto;
+}
+
+.type-selection-div {
+	height: 20%;
+	margin: 0;
+}
+
+.type-option-div {
+	height: 100%;
+}
+
+.type-link {
+	font-family: OpenSans;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 40px;
+	text-align: left;    
+	position: absolute;
+    top: 25%;
+}
+
+.type-link:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #ffffff;
+}
+
+.create-project-div {    
+	background-color: #ffffff;
+    height: 150px;
+    font-family: OpenSans;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 30px;
+	text-align: center;
+	padding-top: 35px;
+}
+
+.project-item {
+	height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-item-headline {
+	font-family: OpenSans;
+	color: #0a024b;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 40px;
+	text-align: left;
+}
+
 
 /* Small width */
 @media (max-width: 700px), (max-height: 800px){

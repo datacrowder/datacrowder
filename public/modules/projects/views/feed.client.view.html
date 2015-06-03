@@ -1,27 +1,35 @@
 <section data-ng-controller="ListController" data-ng-init="feed()">
-    <div class="particles-light">
-        <div class="page-header">
-            <h1>Feed</h1>
-        </div>
-
-        <div class="form-group">
-            <button type="button" ng-click="changeType(false)" class="btn btn-default">Open projects</button>
-            <button type="button" ng-click="changeType(true)" class="btn btn-default">Stories</button>
+    <div class="padding-content particles-light repeat-background">
+        <div class="type-selection-div form-group">
+            <div class="type-option-div col-xs-5 col-xs-offset-1">
+                <a ng-click="changeType(false)" class="type-link">BROWSE OPEN PROJECTS</a>
+            </div>
+            <div class="type-option-div col-xs-5 col-xs-offset-1">
+                <a ng-click="changeType(true)" class="type-link">BROWSE STORIES</a>
+            </div>
         </div>
         
-        <div class="list-group">
-            <a data-ng-repeat="project in projects" data-ng-href="#!/projects/{{project._id}}" class="list-group-item">
-    			<small class="list-group-item-text">
-    				Posted on
-    				<span data-ng-bind="project.created | date:'medium'"></span>
-    				by
-    				<span data-ng-bind="project.user.displayName"></span>
-    			</small>
-                <h4 class="list-group-item-heading" data-ng-bind="project.headline"></h4>
-    			<h5 class="list-group-item-heading" data-ng-bind="project.description"></h5>
-                <h5>{{project.questions[0].responses.length}} {{project.questions[0].responses.length == 1 ? "response":"responses"}}, 
-                    {{project.comments.length}} {{project.comments.length == 1 ? "comment":"comments"}}</h5>
+        <div class="feed-list">
+            <a data-ng-repeat="project in projects" data-ng-href="#!/projects/{{project._id}}" class="project-item col-sm-6 col-xs-12 list-group-item" 
+                style="background-image: url('modules/projects/img/project_cover.jpg')"> 
+                <!-- style="background-image: url('modules/projects/img/{{project.cover}}')" -->
+                <div class="project-item-headline"> 
+                    {{project.headline}}
+                </div>
+                <h5>{{project.closed == true ? "Validated research":"Active now"}}</h5>
+                <h5>{{project.comments.length}} {{project.comments.length == 1 ? "comment":"comments"}} | 
+                    {{project.questions[0].responses.length}} {{project.questions[0].responses.length == 1 ? "response":"responses"}}
+                    </h5>
             </a>
         </div>
+             <div class="clearfix visible-xs-block"></div>
+
+        <div class="create-project-div">
+            <div class="row blue-text">Feeling curious or starstruck?</div>
+            <div class="row red-text">CREATE A PROJECT</div>  
+            <a href="/#!/projects/create">
+                <img src="modules/core/img/navbar/create-project.png">
+            </a>      
+    </div>   
     </div>
 </section>
