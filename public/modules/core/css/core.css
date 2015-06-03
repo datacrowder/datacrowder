@@ -40,21 +40,34 @@ html, body {
 	margin-right: 0;
 }
 
-.full-content {
-	height: 100%;
-}
-
-.footer-content {
-	height: 100%;
-	padding-bottom: 150px;
-}
-
 .blue-text {
 	color: #0a024b
 }
 
 .red-text {
 	color: #f41535;
+}
+
+.full-content {
+	height: 100%;
+}
+
+.padding-content {
+	height: 100%;
+	padding-bottom: 150px;
+}
+
+.particles-light {   
+	background-image: url("../img/home/home_background.png");
+}
+
+.home-background {
+    background-repeat: no-repeat;
+    background-size: 100% 78.57%;	
+}
+
+.repeat-background {
+	background-repeat: repeat;
 }
 
 
@@ -182,13 +195,6 @@ html, body {
     display: inline-block;
 }
 
-.particles-light {   
-	background-image: url("../img/home/home_background.png");
-    background-repeat: no-repeat;
-    background-size: 100% 78.57%;
- 	color: white;
-}
-
 .homepage-text {
 	font-family: OpenSans;
 	color: #ffffff;
@@ -283,17 +289,14 @@ html, body {
 
 
 /* Feed */
-.background-repeat {
-	background-repeat: repeat;
-}
 
 .feed-list {
-	height: 85%;
+	height: 80%;
 	overflow: auto;
 }
 
 .type-selection-div {
-	height: 15%;
+	height: 20%;
 	margin: 0;
 }
 
@@ -321,7 +324,6 @@ html, body {
 .create-project-div {    
 	background-color: #ffffff;
     height: 150px;
-    margin-top: -150px;
     font-family: OpenSans;
 	font-size: 18px;
 	font-weight: 400;
@@ -331,7 +333,7 @@ html, body {
 }
 
 .project-item {
-	height: 90%;
+	height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
