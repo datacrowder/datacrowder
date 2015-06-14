@@ -25,6 +25,12 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', '$lo
 		// Collapsing the menu after navigation
 		$scope.$on('$stateChangeSuccess', function() {
 			$scope.isCollapsed = false;
+            if (typeof $location.search().place === 'undefined') {
+                $scope.city = 'Projects';
+            } else {
+                $scope.city = $location.search().place;
+            }
 		});
+
 	}
 ]);
