@@ -94,7 +94,7 @@ Ce e important de notat aici este ca url-ul pe care il asociezi unui View (asoci
 
 ## GIT-ing
 
-Always commit to development branch, then merge with master and push
+Always commit to development/design branch, then merge with master and push
 
 ## INSTALLING
 
