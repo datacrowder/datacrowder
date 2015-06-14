@@ -1,0 +1,42 @@
+.project-item {
+    position: relative;
+}
+
+.project-item a.over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.project-item-container {
+    width: 80%;
+    padding: 2rem 10%;
+    max-height: 210px;
+}
+
+.project-item-container .line {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #fecd05;
+}
+
+.project-item-container h2 {
+    color: #0a024b;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.project-item-container .status {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    color: #00adc7;
+}
+.project-item-container .status.closed {
+    color: #00a651;
+}

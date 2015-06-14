@@ -72,5 +72,6 @@ module.exports.getJavaScriptAssets = function(includeTests) {
  */
 module.exports.getCSSAssets = function() {
 	var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+    output.push('http://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
 	return output;
 };

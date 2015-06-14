@@ -1,8 +1,8 @@
-.content {
-	padding-top: 100px;
-	padding-bottom: 200px;
-	height: 100%;
+* {
+    font-family: "Open Sans";
+    text-shadow: none !important;
 }
+
 .undecorated-link:hover {
 	text-decoration: none;
 }
@@ -25,11 +25,6 @@ body.ng-cloak
 
 /* General */
 
-section {
-	min-height: 100%;
-	height: 100%;
-}
-
 html, body {
 	height: 100%;
 	/*min-width: 600px;*/
@@ -48,37 +43,30 @@ html, body {
 	color: #f41535;
 }
 
-.full-content {
-	height: 100%;
-}
-
-.padding-content {
-	height: 100%;
-	padding-bottom: 150px;
-}
-
-.particles-light {   
+.particles-light {
 	background-image: url("../img/home/home_background.png");
 }
 
 .home-background {
     background-repeat: no-repeat;
-    background-size: 100% 78.57%;	
+    background-size: 100% 78.57%;
+    padding-top: 100px;
+    padding-bottom: 20%;
 }
 
+.homepage-text-small {
+    margin-bottom: 7rem;
+}
 .repeat-background {
-	background-repeat: repeat;
+	background-repeat: repeat-y;
 }
 
 
-/* Navbar */ 
-.navbar-inverse {
-	background-image: none;
-	border-color: white;
-}
+/* Navbar */
 
 .navbar {
 	min-height: 100px;
+    margin-bottom: 0;
 }
 
 .navbar-fixed-bottom {
@@ -88,39 +76,42 @@ html, body {
 
 .navbar-fixed-top {
 	background-color: #ffffff;
-	padding: 0 40px;
+	padding: 0 20px;
 }
 
 .navbar-form {
-	margin: 0;
-	width: 640px;
-	padding: 0;
+    display: inline-block;
+    width: 65%;
+    margin: 0;
+    margin-left: 5%;
+    padding: 0;
 }
 
-.navbar-form .form-group {    
-	background-color: rgba(191, 191, 191, 0.1);	
+.navbar-form .form-group {
+    background-color: rgb(191, 191, 191);
+	background-color: rgba(191, 191, 191, 0.1);
 	display: block;
     height: 100px;
     margin: auto;
-    width: 36%;
 }
-
 
 .navbar-form .form-control {
 	border: none;
+    width: 90%;
 	height: 100px;
     margin: auto;
     border-radius: 0;
+    box-shadow: none;
 }
 
 .search-bar {
 	/*background: url("../img/navbar/search_img.png") no-repeat scroll 30px 40px;*/
-	background-color: rgba(191, 191, 191, 0.1);	
-	height: 100%;    
+	background-color: transparent;
+	height: 100%;
 	border: 0 none;
     border-radius: 0;
     width: 90%;
-    font-family: OpenSans;
+    color: rgb(10, 2, 75);
 	color: rgba(10, 2, 75, 0.9);
 	font-size: 16px;
 	font-weight: 400;
@@ -129,6 +120,7 @@ html, body {
 }
 
 .search-bar::-moz-placeholder {
+    color: rgb(10, 2, 75);
 	color: rgba(10, 2, 75, 0.9);
 }
 
@@ -152,7 +144,10 @@ html, body {
 .navbar-header {
 	padding-top: 20px;
 }
-
+footer {
+    display: block;
+    clear: both;
+}
 .social-footer {
 	background-color: #ffffff;
 	height: 100px;
@@ -171,18 +166,82 @@ html, body {
 .menu-footer {
 	padding-top: 30px;
 	color: #4b4b4b;
-	font-family: OpenSans;
 	font-size: 13px;
 	font-weight: 400;
 	line-height: 20px;
 }
 
 .footer-link {
-	margin-left: 20px;
-	margin-right: 20px;
 	color: #4b4b4b;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.footer-link:hover {
+    color: #0a024b
+}
+.nav > li {
+    margin-top: 2rem;
+}
+.nav > li > a {
+    color: #f41535;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+    color: #0a024b;
+    background: none;
+}
+.nav > .active > a, .nav > .active > a:hover, .nav > .active > a:focus,
+.nav > .open > a, .nav > .open > a:hover, .nav > .open > a:focus {
+    background: transparent;
+    color: #0a024b;
+    box-shadow: none;
+    text-decoration: none;
 }
 
+.navbar-toggle .icon-bar {
+    background-color: #0a024b;
+}
+.navbar-toggle,.navbar-toggle:hover, .navbar-toggle:focus {
+    background: transparent;
+    border-color: #0a024b;
+}
+.navbar-collapse, .navbar-form {
+    border: 0;
+}
+
+.navbar-collapse.collapsing,
+.navbar-collapse.in {
+    text-align: center;
+}
+.navbar-collapse.collapsing .navbar-form,
+.navbar-collapse.in .navbar-form {
+    width: 90%;
+}
+.navbar-collapse.collapsing .navbar-form .form-control,
+.navbar-collapse.in .navbar-form .form-control {
+    width: 80%;
+    display: inline-block;
+    height: 50px;
+}
+.navbar-collapse.collapsing .navbar-form button,
+.navbar-collapse.in .navbar-form button {
+    display: inline-block;
+}
+.navbar-collapse.collapsing .navbar-form .form-group,
+.navbar-collapse.in .navbar-form .form-group {
+    height: auto;
+}
+.navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #0a024b;
+}
+.navbar-nav .open .dropdown-menu {
+    text-align: center;
+}
 
 /* Home */
 
@@ -190,17 +249,16 @@ html, body {
     background: none repeat scroll 0 0 rgb(244, 21, 53);
     height: 4px;
     top: 38%;
-    width: 80px;    
+    width: 80px;
     position: relative;
     display: inline-block;
 }
 
 .homepage-text {
-	font-family: OpenSans;
 	color: #ffffff;
     font-size: 20px;
     font-weight: 300;
-    line-height: 30px;   
+    line-height: 30px;
 }
 
 .homepage-text-large {
@@ -210,8 +268,8 @@ html, body {
 	padding-bottom: 30px;
 }
 
-.homepage-text-small { 
-	padding-top: 30px; 
+.homepage-text-small {
+	padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
     max-width: 450px;
@@ -222,8 +280,8 @@ html, body {
 }
 
 .feed-pictures {
-	height: 40%;
-	bottom: 0;
+    height: 40%;
+    bottom: 0;
     /*margin-top: 15%;*/
 }
 
@@ -236,31 +294,31 @@ html, body {
 }
 
 .black-background {
-	background-color: black;
-	height: 100%;
+    background-color: black;
+    height: 100%;
     padding-right: 0;
     padding-left: 0;
 }
 
 .feed-tab:hover {
-    opacity: 0.85;	
+    opacity: 0.85;
 }
 
 .feed-text {
-    font-family: Karbon;
-	color: #f41535;
-	text-align: center;
-	font-weight: 700;
-	height: 100%;
-	font-size: 14px;
-	line-height: 18px;
-	padding-top: 10%;
+    color: #f41535;
+    text-align: center;
+    font-weight: 700;
+    height: 300px;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 15%;
 }
 
 .feed-text-large {
-	font-size: 36px;
-	line-height: 30px;
+    font-size: 36px;
+    line-height: 30px;
 }
+
 
 .berlin-feed {
     background-image: url("../img/home/berlinphoto.jpg");
@@ -275,7 +333,7 @@ html, body {
 	height: 40%;
 	margin-left: auto;
 	margin-right: auto;
-	display: block;    
+	display: block;
 	margin-top: 3%;
 }
 
@@ -290,41 +348,33 @@ html, body {
 
 /* Feed */
 
-.feed-list {
-	height: 80%;
-	overflow: auto;
-}
-
 .type-selection-div {
 	height: 20%;
 	margin: 0;
 }
 
 .type-option-div {
-	height: 100%;
+    padding: 40px 0;
 }
 
 .type-link {
-	font-family: OpenSans;
-	color: #ffffff;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 40px;
-	text-align: left;    
-	position: absolute;
-    top: 25%;
+	text-align: center;
+    display: block;
+    color: #FFF;
 }
 
 .type-link:hover {
 	text-decoration: none;
 	cursor: pointer;
-	color: #ffffff;
+    color: #FFF;
 }
 
-.create-project-div {    
+.create-project-div {
 	background-color: #ffffff;
     height: 150px;
-    font-family: OpenSans;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 30px;
@@ -333,14 +383,16 @@ html, body {
 }
 
 .project-item {
-	height: 100%;
+	height: 360px;
+    display: block;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    border: 0;
+    border-radius: 0 !important;
 }
 
 .project-item-headline {
-	font-family: OpenSans;
 	color: #0a024b;
 	font-size: 36px;
 	font-weight: 700;
@@ -348,16 +400,27 @@ html, body {
 	text-align: left;
 }
 
+/* Extra bootstrap */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 
 /* Small width */
 @media (max-width: 700px), (max-height: 800px){
-	
+
 	.homepage-text-large {
 		font-size: 40px;
 		padding-bottom: 15px;
 	}
 
-	.homepage-text-small { 
+	.homepage-text-small {
 		font-size: 15px;
 		padding-top: 15px;
 	}
@@ -378,8 +441,18 @@ html, body {
 	}
 }
 
+@media screen and (max-width: 1440px) {
+    .navbar-form {
+        width: 55%;
+    }
+}
 
-/* Small height */
-@media (max-height: 700px) {
-	
+@media screen and (max-width: 980px) {
+    .navbar-form {
+        width: 35%;
+    }
+
+    .nav > li {
+        margin-top: 0;
+    }
 }
