@@ -24,6 +24,10 @@
                         <li>{{project.comments.length}} {{project.comments.length == 1 ? "comment":"comments"}}</li>
                         <li>{{project.questions[0].responses.length}} {{project.questions[0].responses.length == 1 ? "response":"responses"}}</li>
                     </ul>
+                    <div class="progress">
+                        <span style="width: {{project.questions[0].responses.length*0.3333}}%"></span>
+                        <em>{{project.questions[0].responses.length}} backers / 300</em>
+                    </div>
                 </div>
             </div>
         </div>

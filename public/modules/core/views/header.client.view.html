@@ -70,10 +70,10 @@
             </li>
 			<li class="dropdown" dropdown>
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+					<span>Profile</span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-					<li><a href="/#!/settings/profile">Edit Profile</a></li>
+					<li><a href="/#!/settings/profile">Welcome <span data-ng-bind="authentication.user.displayName"></span></a></li>
 					<!-- <li><a href="/#!/settings/accounts">Manage Social Accounts</a></li> -->
 					<li data-ng-show="authentication.user.provider === 'local'"><a href="/#!/settings/password">Change Password</a></li>
 					<li><a href="/auth/signout">Signout</a></li>
