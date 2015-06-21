@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 angular.module('core').controller('HeaderController', ['$scope', '$window', '$location', 'Authentication', 'Menus', 'Projects',
 	function($scope, $window, $location, Authentication, Menus, Projects) {
@@ -10,17 +10,30 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', '$lo
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
 
-		// Go to the feed with a search query
+		// Perform a search query
 		$scope.search = function() {
+			$window.location.replace('http://localhost:3000/#!/feed?q=' + $scope.query);
+			
 			if ( $window.location.href.indexOf('feed') > -1 ) {
 				// In case currently the window location is the feed page, reload it
-				$window.location.replace('http://localhost:3000/#!/feed?q=' + $scope.query);
 				$window.location.reload(true);
 			}
-			else {
-				$window.location.replace('http://localhost:3000/#!/feed?q=' + $scope.query);
-			}
 		};
+
+		// Change the location
+		$scope.changeLocation = function(location) {
+			if ( location == 'all' ) {
+				$window.location.replace('http://localhost:3000/#!/feed');
+			}
+			else {
+				$window.location.replace('http://localhost:3000/#!/feed?place=' + location);
+			}
+
+			if ( $window.location.href.indexOf('feed') > -1 ) {
+				// In case currently the window location is the feed page, reload it
+				$window.location.reload(true);
+			}
+		};		
 
 		// Collapsing the menu after navigation
         $scope.city = 'Projects';
