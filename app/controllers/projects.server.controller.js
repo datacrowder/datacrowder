@@ -118,11 +118,11 @@ exports.feed = function(req, res) {
 		query.$or = [ {headline : { '$regex': req.query.q, '$options': 'i' }}, {description : { '$regex': req.query.q, '$options': 'i' }} ];
 	}
 
-	// If the user selected a  type of project, check the project status
-	if ( typeof req.query.type !== 'undefined' ){
-		if ( req.query.type === 'true' )
+	// If the user selected a type of project, check the project status
+	if ( typeof req.query.closed !== 'undefined' ){
+		if ( req.query.closed === 'true' )
 			query.closed = true;
-		else if ( req.query.type === 'false' )
+		else if ( req.query.closed === 'false' )
 			query.closed = false;
 	}
 

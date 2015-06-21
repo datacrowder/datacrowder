@@ -13,14 +13,14 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 		$scope.feed = function() {
 			if ( typeof $location.search().place !== 'undefined' ) {
 				$scope.regions = Regions.query({}, function () {
-					$scope.projects = Projects.Feed.query({q: $location.search().q, type: $location.search().type}, function () {
+					$scope.projects = Projects.Feed.query({q: $location.search().q, closed: $location.search().closed}, function () {
 						// If there is a location, filter the results
 						$scope.filterLocation();
 					});
 				});
 			}
 			else {
-				$scope.projects = Projects.Feed.query({q: $location.search().q, type: $location.search().type});
+				$scope.projects = Projects.Feed.query({q: $location.search().q, closed: $location.search().closed});
             }
 		};
 
@@ -53,17 +53,17 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 		};
 
 		// Change the type
-		$scope.changeType = function(projectType) {
+		$scope.changeType = function(closedProject) {
 			if ( typeof $location.search().place !== 'undefined' ) {
 				$scope.regions = Regions.query({}, function () {
-					$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType}, function () {
+					$scope.projects = Projects.Feed.query({q: $location.search().q, closed: closedProject}, function () {
 						// If there is a location, filter the results
 						$scope.filterLocation();
 					});
 				});
 			}
 			else {
-				$scope.projects = Projects.Feed.query({q: $location.search().q, type: projectType});
+				$scope.projects = Projects.Feed.query({q: $location.search().q, closed: closedProject});
 			}
 		};
 	}

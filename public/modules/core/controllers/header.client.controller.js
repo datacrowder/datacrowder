@@ -22,7 +22,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', '$lo
 
 		// Change the location
 		$scope.changeLocation = function(location) {
-			if ( location == 'all' ) {
+			if ( location === 'all' ) {
 				$window.location.replace('http://localhost:3000/#!/feed');
 			}
 			else {

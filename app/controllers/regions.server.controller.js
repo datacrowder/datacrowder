@@ -40,7 +40,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an Region
+ * Delete a Region
  */
 exports.delete = function(req, res) {
 
