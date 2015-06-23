@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('projects').controller('ListController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects', 'Regions',
-    function($scope, $stateParams, $location, Authentication, Projects, Regions) {
+angular.module('projects').controller('ListController', ['$scope', '$stateParams', 'Authentication', 'Projects', 'Regions',
+    function($scope, $stateParams, Authentication, Projects, Regions) {
 		$scope.authentication = Authentication;
+		$scope.feedParameters = Projects.getParameters();
 
 		// Get the user's research
 		$scope.research = function() {
@@ -11,17 +12,13 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 
 		// Get the feed
 		$scope.feed = function() {
-			if ( typeof $location.search().place !== 'undefined' ) {
-				$scope.regions = Regions.query({}, function () {
-					$scope.projects = Projects.Feed.query({q: $location.search().q, closed: $location.search().closed}, function () {
-						// If there is a location, filter the results
+			$scope.regions = Regions.query({}, function () {
+				$scope.projects = Projects.Feed.query({q: $scope.feedParameters.q, closed: $scope.feedParameters.closed}, function () {
+					// If there is a location, filter the results
+					if ( $scope.feedParameters.place !== 'all' )
 						$scope.filterLocation();
-					});
 				});
-			}
-			else {
-				$scope.projects = Projects.Feed.query({q: $location.search().q, closed: $location.search().closed});
-            }
+			});
 		};
 
 		// Filter the projects according to their location
@@ -30,7 +27,7 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 
 			// Find the country
 			for (var i = 0; i < $scope.regions.length; i++) {
-				if ( $scope.regions[i].name === $location.search().place ) {
+				if ( $scope.regions[i].name === $scope.feedParameters.place ) {
 					id = $scope.regions[i]._id;
 					break;
 				}
@@ -54,17 +51,12 @@ angular.module('projects').controller('ListController', ['$scope', '$stateParams
 
 		// Change the type
 		$scope.changeType = function(closedProject) {
-			if ( typeof $location.search().place !== 'undefined' ) {
-				$scope.regions = Regions.query({}, function () {
-					$scope.projects = Projects.Feed.query({q: $location.search().q, closed: closedProject}, function () {
-						// If there is a location, filter the results
-						$scope.filterLocation();
-					});
-				});
-			}
-			else {
-				$scope.projects = Projects.Feed.query({q: $location.search().q, closed: closedProject});
-			}
+			Projects.setClosed(closedProject);
 		};
+
+		// Watch for changes of the feed parameters
+		$scope.$watchCollection('feedParameters', function () {
+			$scope.feed();
+		});
 	}
 ]);

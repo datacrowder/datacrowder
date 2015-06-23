@@ -5,6 +5,7 @@ angular.module('core').controller('HomeController', ['$scope', '$q', 'Authentica
 	function($scope, $q, Authentication, Projects, Regions) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
+		$scope.feedParameters = Projects.getParameters();
 		$scope.counts = {London: 0, Berlin: 0};
 
 		// Get all the projects
@@ -42,5 +43,10 @@ angular.module('core').controller('HomeController', ['$scope', '$q', 'Authentica
 
 			$scope.counts[country] = count;
 		};
+
+		// Change the location
+		$scope.changeLocation = function(location) {
+			Projects.setPlace(location);
+		};	
 	}
 ]);

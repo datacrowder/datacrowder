@@ -5,6 +5,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', '$lo
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
+		$scope.feedParameters = Projects.getParameters();
+        $scope.city = $scope.feedParameters.place;
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
@@ -12,39 +14,29 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', '$lo
 
 		// Perform a search query
 		$scope.search = function() {
-			$window.location.replace('http://localhost:3000/#!/feed?q=' + $scope.query);
-			
-			if ( $window.location.href.indexOf('feed') > -1 ) {
-				// In case currently the window location is the feed page, reload it
-				$window.location.reload(true);
+			Projects.setQuery($scope.query);
+
+			// In case the current window location is not the feed page
+			if ( $window.location.href.indexOf('feed') === -1 ) {
+				$window.location.replace('http://localhost:3000/#!/feed');
 			}
 		};
 
 		// Change the location
 		$scope.changeLocation = function(location) {
-			if ( location === 'all' ) {
-				$window.location.replace('http://localhost:3000/#!/feed');
-			}
-			else {
-				$window.location.replace('http://localhost:3000/#!/feed?place=' + location);
-			}
+			Projects.setPlace(location);
+			$scope.city = $scope.feedParameters.place;
 
-			if ( $window.location.href.indexOf('feed') > -1 ) {
-				// In case currently the window location is the feed page, reload it
-				$window.location.reload(true);
+			// In case the current window location is not the feed page
+			if ( $window.location.href.indexOf('feed') === -1 ) {
+				$window.location.replace('http://localhost:3000/#!/feed');
 			}
 		};		
 
-		// Collapsing the menu after navigation
-        $scope.city = 'Projects';
-		$scope.$on('$stateChangeSuccess', function() {
-			$scope.isCollapsed = false;
-            if (typeof $location.search().place === 'undefined') {
-                $scope.city = 'Projects';
-            } else {
-                $scope.city = $location.search().place;
-            }
-		});
+		$scope.resetParameters = function() {
+			Projects.resetParameters();
+			$scope.city = 'Projects';
+		};
 
 	}
 ]);
